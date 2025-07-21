@@ -67,6 +67,7 @@ This is a modern, responsive e-commerce web application built with React, TypeSc
   npm install
   # or
   yarn install
+  ```
 
 
 3. **Run the Development Server**
@@ -74,4 +75,5 @@ This is a modern, responsive e-commerce web application built with React, TypeSc
   npm start
   or 
   yarn start
+  ```
 
