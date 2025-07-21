@@ -40,10 +40,10 @@ A modern and responsive e-commerce web application built with **React**, **TypeS
 ## 🚀 Getting Started
 
 1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/TyB3ar/E-Commerce-App-.git
-   cd E-Commerce-App-
+  ```bash
+  git clone https://github.com/TyB3ar/E-Commerce-App-.git
+  cd E-Commerce-App-
+  ```
 
 2. **Install Dependencies:**
   ```bash
@@ -51,7 +51,6 @@ A modern and responsive e-commerce web application built with **React**, **TypeS
   # or
   yarn install
   ```
-
 
 3. **Run the Development Server**
   ```bash
