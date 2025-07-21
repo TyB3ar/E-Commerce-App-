@@ -61,3 +61,17 @@ This is a modern, responsive e-commerce web application built with React, TypeSc
    ```bash
    git clone https://github.com/yourusername/your-repo.git
    cd your-repo
+
+2. **Install Dependencies:**
+  ```bash
+  npm install
+  # or
+  yarn install
+
+
+3. **Run the Development Server**
+  ```bash
+  npm start
+  or 
+  yarn start
+
