@@ -1,66 +1,49 @@
-# Advanced E-Commerce Application
+# 🛒 Advanced E-Commerce Application
 
 ## Overview
 
-This is a modern, responsive e-commerce web application built with React, TypeScript, Redux Toolkit, and React Query. It connects to the [FakeStoreAPI](https://fakestoreapi.com/) to fetch product data dynamically and provides a smooth shopping experience including product browsing, category filtering, and a fully featured shopping cart with persistence.
+A modern and responsive e-commerce web application built with **React**, **TypeScript**, **Redux Toolkit**, and **React Query**. It integrates with [FakeStoreAPI](https://fakestoreapi.com/) to provide real-time product data, category filtering, and a fully featured shopping cart with session persistence.
 
 ---
 
-## Features
+## ✨ Features
 
-### Product Catalog
+### 🛍️ Product Catalog
+- **Dynamic Product Listing** – Fetches and displays all products using React Query.
+- **Category Filter** – Pulls product categories from the API; selecting one filters results in real time.
 
-- **Product Listing and Display**  
-  Fetches all products from FakeStoreAPI using React Query and displays them on the Home page. Each product shows title, price, category, description, rating, and image.
+### 🛒 Shopping Cart
+- **Redux Toolkit Integration** – Handles add/remove/clear actions with persistent state via `sessionStorage`.
+- **Real-Time Totals** – Cart updates item count and total price dynamically.
+- **Checkout Simulation** – Clears the cart and session storage with a single click.
+- **Modal Checkout UI** *(optional)* – Checkout presented in a modal for improved UX.
 
-- **Category Navigation**  
-  Dynamically fetches product categories from the API to populate a category dropdown. Selecting a category filters the displayed products accordingly.
-
-### Shopping Cart
-
-- **State Management with Redux Toolkit**  
-  Manages the cart state (add, update, remove products) via Redux Toolkit. Actions update both Redux state and persist data to `sessionStorage` for browser session persistence.
-
-- **Shopping Cart Component**  
-  Displays all products added to the cart, including title, image, quantity, and price. Users can remove items directly from the cart.
-
-- **Total Quantity and Price Calculation**  
-  Dynamically calculates and displays the total number of items and the total cost in the cart.
-
-- **Checkout Functionality**  
-  Simulates checkout by clearing the cart state and `sessionStorage`. Provides user feedback upon successful checkout.
-
-### Additional Features
-
-- **Responsive UI**  
-  Product grid and cart layout adapt to various screen sizes for usability on desktop and mobile.
-
-- **Consistent Styling**  
-  Utilizes a custom earthy color palette and consistent button styles across the app for a polished look.
-
-- **Modal Checkout (Optional)**  
-  Checkout process can be displayed as a modal on the cart page for better user experience.
+### 🎨 UI & UX
+- **Responsive Design** – Product grid and cart adapt across screen sizes.
+- **Consistent Styling** – Styled with a custom earthy color palette:
+  - `#DAD7CD`, `#A3B18A`, `#588157`, `#3A5A40`, `#344E41`
+- **Reusable Components** – Product cards and buttons follow consistent design patterns.
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
-- React with TypeScript  
-- Redux Toolkit for state management  
-- React Query for data fetching and caching  
-- Axios for API requests  
-- CSS modules / plain CSS for styling (custom color palette)  
-- FakeStoreAPI as product data source
+- **React + TypeScript** – Component-based architecture with type safety
+- **Redux Toolkit** – Global state management for cart
+- **React Query** – Efficient API data handling and caching
+- **Axios** – Lightweight HTTP client for requests
+- **CSS** – Plain CSS with a custom palette (no framework dependency)
+- **FakeStoreAPI** – Mock backend for products and categories
 
 ---
 
-## Setup and Installation
+## 🚀 Getting Started
 
 1. **Clone the repository:**
 
    ```bash
    git clone https://github.com/TyB3ar/E-Commerce-App-.git
-   cd your-repo
+   cd E-Commerce-App-
 
 2. **Install Dependencies:**
   ```bash
