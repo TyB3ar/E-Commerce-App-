@@ -59,7 +59,7 @@ This is a modern, responsive e-commerce web application built with React, TypeSc
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/TyB3ar/E-Commerce-App-.git
    cd your-repo
 
 2. **Install Dependencies:**
