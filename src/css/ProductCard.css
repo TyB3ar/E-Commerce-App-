@@ -12,6 +12,10 @@
   transition: transform 0.2s ease;
 }
 
+.popup {
+  margin-top: 1rem; 
+}
+
 .card:hover {
   transform: translateY(-4px);
 }
