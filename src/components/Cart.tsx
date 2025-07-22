@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import type { RootState } from "../app/store";
 import { removeFromCart, clearCart } from "../cart/cartSlice";
 import { useState } from "react";
@@ -8,6 +9,7 @@ const Cart = () => {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate(); 
 
   const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -65,9 +67,11 @@ const Cart = () => {
               maxWidth: "400px",
             }}
           >
-            <h2>Thank you for your purchase!</h2>
-            <p>Your cart has been successfully checked out.</p>
-            <button onClick={() => setShowModal(false)}>Close</button>
+            <h2>🎉 Order Placed Successfully!</h2>
+            <p>Thank you for shopping with us.</p>
+            <button onClick={() => {setShowModal(false); navigate("/");}}>
+              Close
+            </button>
           </div>
         </div>
       )}

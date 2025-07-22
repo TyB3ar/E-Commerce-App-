@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./components/Home";
 import Cart from "./components/Cart";
-import Checkout from "./pages/Checkout"; 
 
 
 const App = () => {
@@ -18,7 +17,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
     </Router>
