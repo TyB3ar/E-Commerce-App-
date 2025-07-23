@@ -5,12 +5,12 @@ import type { Auth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCirDCbMtYVQuQNEpGhG9iUq0qsf9WV3eM",
-  authDomain: "e-commerce-app-3b04f.firebaseapp.com",
-  projectId: "e-commerce-app-3b04f",
-  storageBucket: "e-commerce-app-3b04f.firebasestorage.app",
-  messagingSenderId: "300185760890",
-  appId: "1:300185760890:web:29d0bf242a8d42814977c3"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
 };
 
 const app = initializeApp(firebaseConfig); 
