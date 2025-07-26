@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 import type { Auth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+
 const firebaseConfig = {
   apiKey: "your_api_key",
   authDomain: "your_auth_domain",

@@ -5,6 +5,7 @@ import Profile from "./components/Users";
 import Login from "./firebase/Login";
 import Register from "./firebase/Register";
 import RequireAuth from "./components/RequireAuth";
+import ProductsPage from "./components/ProductsPage";
 import { useAuth } from "./hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase/fbConfig";
@@ -26,6 +27,7 @@ const Navbar = ({ user }: { user: any }) => {
       {user ? (
         <>
           <Link to="/"><button>Home</button></Link>
+          <Link to="/products"><button>Products</button></Link>
           <Link to="/cart"><button>Cart</button></Link>
           <Link to="/profile"><button>Profile</button></Link>
           <button onClick={handleLogout}>Logout</button>
@@ -57,6 +59,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
           <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
+          <Route path="/products" element={<RequireAuth><ProductsPage /></RequireAuth>} />
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>

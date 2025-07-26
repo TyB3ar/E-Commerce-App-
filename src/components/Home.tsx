@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchProducts, fetchCategories, fetchProductsByCategory } from "../api/products";
 import { useState } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../products/ProductCard";
 import type { Product } from "../types/product";
 
 const Home = () => {

@@ -6,9 +6,12 @@ import "../css/ProductCard.css";
 
 interface ProductCardProps {
   product: Product;
+  onEdit?: (product: Product) => void;
+  onDelete?: (id: string) => void;
+  showAddToCart?: boolean;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product, onEdit, onDelete, showAddToCart = true }: ProductCardProps) => {
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false); 
 
@@ -24,8 +27,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <h3>{product.title}</h3>
       <p>{product.category}</p>
       <p>${product.price}</p>
-      <button onClick={handleAddToCart}>Add to Cart</button>
+
+      {showAddToCart && <button onClick={handleAddToCart}>Add to Cart</button>}
       {showPopup && <div className="popup">🛒 Added to cart!</div>}
+
+      {onEdit && onDelete && (
+        <div className="admin-controls">
+          <button onClick={() => onEdit(product)} className="btn btn-edit">Edit</button>
+          <button onClick={() => onDelete(product.id)} className="btn btn-delete">Delete</button>
+        </div>
+      )}
     </div>
   );
 };
