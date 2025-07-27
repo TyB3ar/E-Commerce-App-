@@ -6,6 +6,9 @@ import Login from "./firebase/Login";
 import Register from "./firebase/Register";
 import RequireAuth from "./components/RequireAuth";
 import ProductsPage from "./components/ProductsPage";
+import Checkout from "./cart/Checkout";
+import OrderDetails from "./components/OrderDetails";
+import MyOrders from "./components/MyOrders";
 import { useAuth } from "./hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase/fbConfig";
@@ -60,6 +63,9 @@ const App = () => {
           <Route path="/" element={<RequireAuth><Home /></RequireAuth>} />
           <Route path="/cart" element={<RequireAuth><Cart /></RequireAuth>} />
           <Route path="/products" element={<RequireAuth><ProductsPage /></RequireAuth>} />
+          <Route path="/checkout" element={<RequireAuth><Checkout /></RequireAuth>} />
+          <Route path="/orders/:orderId" element={<RequireAuth><OrderDetails /></RequireAuth>} />
+          <Route path="/my-orders" element={<RequireAuth><MyOrders /></RequireAuth>} />
           <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>

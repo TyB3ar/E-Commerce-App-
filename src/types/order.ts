@@ -3,7 +3,13 @@
 // (name, price, id, quantity), and order timestamp
 
 export interface Order {
-    id: number; 
-    total_price: number;
-    date: Date;
+    id: string;
+    userId: string;
+    products: {
+        productId: string;
+        quantity: number;
+        price: number;
+    }[];
+    totalPrice: number;
+    createdAt: Date;
 }
