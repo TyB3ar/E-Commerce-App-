@@ -67,28 +67,8 @@ const Cart = () => {
 
       {/* Modal */}
       {showModal && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              background: "#fff",
-              padding: "2rem",
-              borderRadius: "8px",
-              textAlign: "center",
-              maxWidth: "400px"
-            }}
-          >
+        <div className="modal-overlay">
+          <div className="modal-content">
             <h2>🎉 Order Placed Successfully!</h2>
             <p>Thank you for shopping with us.</p>
             <button onClick={() => {setShowModal(false); navigate("/");}}>
