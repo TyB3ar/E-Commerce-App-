@@ -1,5 +1,5 @@
 import { db } from "../firebase/fbConfig"; 
-import { doc, setDoc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, getDocs,  updateDoc, deleteDoc, collection, query, where } from "firebase/firestore";
 
 export interface UserProfile { 
     uid: string; 
@@ -31,8 +31,16 @@ export const updateUserProfile = async (uid: string, updatedData: Partial<UserPr
 }; 
 
 // Delete user profile document 
-export const deleteUserProfile = async (uid: string) => { 
+export const deleteUserProfile = async (uid: string) => {
     const userRef = doc(db, "users", uid); 
     await deleteDoc(userRef); 
 };
 
+export const deleteUserOrders = async (uid: string) => {
+    const ordersRef = collection(db, "orders"); 
+    const q = query(ordersRef, where("userId", "==", uid));
+    const snapshot = await getDocs(q); 
+
+    const deletePromises = snapshot.docs.map((doc) => deleteDoc(doc.ref));
+    await Promise.all(deletePromises);
+};

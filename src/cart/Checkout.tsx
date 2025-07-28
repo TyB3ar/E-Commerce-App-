@@ -28,9 +28,11 @@ const Checkout = () => {
         products: cartItems.map(item => ({
           productId: item.id,
           quantity: item.quantity,
-          price: item.price
+          price: item.price,
+          image: item.image,
+          title: item.title
         })),
-        totalPrice
+        totalPrice,
       });
 
       dispatch(clearCart());

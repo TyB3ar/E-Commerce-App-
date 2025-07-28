@@ -9,6 +9,8 @@ export interface Order {
         productId: string;
         quantity: number;
         price: number;
+        image: string;
+        title?: string;
     }[];
     totalPrice: number;
     createdAt: Date;

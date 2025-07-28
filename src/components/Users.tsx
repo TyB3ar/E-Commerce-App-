@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"; 
 import { useUserProfile } from "../hooks/useUserProfile"; 
 import { auth } from "../firebase/fbConfig"; 
-import { updateUserProfile, deleteUserProfile } from "../firebase/users";
+import type { User } from "firebase/auth";
+import { EmailAuthProvider, reauthenticateWithCredential } from "firebase/auth/web-extension";
+import { updateUserProfile, deleteUserProfile, deleteUserOrders } from "../firebase/users";
 import { useNavigate } from "react-router-dom"; 
 
 const Profile = () => { 
@@ -13,6 +15,16 @@ const Profile = () => {
     const [name, setName] = useState(""); 
     const [address, setAddress] = useState(""); 
     
+    const reauthenticateUser = async (user: User, password: string) => {
+        if (!user.email) {
+            alert("No email associated with this account. Cannot reauthenticate.");
+            return;
+        }
+
+        const credential = EmailAuthProvider.credential(user.email, password);
+        await reauthenticateWithCredential(user, credential);
+    }
+
     // Initialize local state when profile loads 
     useEffect(() => { 
         if (profile) { setName(profile.name || ""); 
@@ -39,10 +51,17 @@ const Profile = () => {
         const handleDeleteAccount = async () => { 
             if (!user) return; 
             if (!window.confirm("Are you sure you want to delete your account? This cannot be undone.")) return; 
+
+            const password = window.prompt("Please enter your password again to confirm account deletion:");
+            if (!password) return alert("Password is required to delete your account.");
             
-            try { 
-                await deleteUserProfile(user.uid); 
-                await user.delete(); // Deletes Firebase Auth user 
+            try {
+                await reauthenticateUser(user, password);
+
+                await deleteUserOrders(user.uid); // delete orders
+                await deleteUserProfile(user.uid); // delete profile 
+
+                await auth.currentUser?.delete(); // Deletes Firebase Auth user 
                 alert("Account deleted successfully."); 
                 navigate("/login"); // Redirect to login or home page after deletion 
             } catch (err: any) { 

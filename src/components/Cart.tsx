@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import type { RootState } from "../app/store";
 import { removeFromCart, clearCart } from "../cart/cartSlice";
+import { createOrder } from "../firebase/orders";
+import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 import "../css/cart.css"; 
 
@@ -10,13 +12,33 @@ const Cart = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate(); 
+  const { user } = useAuth(); 
 
   const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const handleCheckout = () => {
-    dispatch(clearCart());
-    setShowModal(true);
+  const handleCheckout = async () => {
+    if(!user) return; 
+
+    const orderData = {
+      userId: user.uid,
+      products: cart.map((item) => ({
+        productId: item.id,
+        title: item.title,
+        image: item.image,
+        quantity: item.quantity,
+        price: item.price,
+      })),
+      totalPrice,
+    };
+
+    try {
+      await createOrder(orderData);
+      dispatch(clearCart());
+      setShowModal(true);
+    } catch (err) {
+      console.error("Failed to place order:", err);
+    }
   };
 
   return (
@@ -64,7 +86,7 @@ const Cart = () => {
               padding: "2rem",
               borderRadius: "8px",
               textAlign: "center",
-              maxWidth: "400px",
+              maxWidth: "400px"
             }}
           >
             <h2>🎉 Order Placed Successfully!</h2>
@@ -72,6 +94,7 @@ const Cart = () => {
             <button onClick={() => {setShowModal(false); navigate("/");}}>
               Close
             </button>
+            <button onClick={() => {setShowModal(false); navigate("/orders/:orderId")}}>Order Details</button>
           </div>
         </div>
       )}

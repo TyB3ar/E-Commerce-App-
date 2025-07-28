@@ -16,6 +16,8 @@ export const createOrder = async (orderData: Omit<Order, 'id' | 'createdAt'>) =>
 export const getUserOrders = async (userId: string): Promise<Order[]> => {
   const q = query(ordersCollection, where('userId', '==', userId), orderBy('createdAt', 'desc'));
   const snapshot = await getDocs(q);
+  console.log("Fetched user orders:", snapshot.docs.map((doc) => doc.data())); 
+  
   return snapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),

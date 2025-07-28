@@ -1,0 +1,16 @@
+.order-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+}
+
+img {
+    max-width: 250px;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 1rem;
+    
+}
