@@ -1,0 +1,1 @@
+// Test component for User Registration with Firebase 
