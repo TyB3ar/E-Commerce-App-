@@ -11,7 +11,7 @@ const firebaseConfig = {
   storageBucket: "your_storage_bucket",
   messagingSenderId: "your_messaging_sender_id",
   appId: "your_app_id",
-};
+}
 
 const app = initializeApp(firebaseConfig); 
 const auth: Auth = getAuth(app); 
