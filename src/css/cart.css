@@ -12,10 +12,9 @@
 
 .cart-card {
   max-width: 240px;
-  margin: 1rem;
-  padding: 1rem;
+  margin: 0 auto; 
+  padding: 0.5rem;
   flex: 1 1 240px;
-  
 }
 
 .cart-grid {

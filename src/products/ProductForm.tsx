@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import type { Product } from "../types/product";
-import styles from "../css/ProductForm.module.css"; // Adjust path if needed
+import styles from "../css/ProductForm.module.css";
 
 interface ProductFormProps {
   product?: Product | null;

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchProducts, fetchCategories, fetchProductsByCategory } from "../api/products";
+import { fetchProducts, fetchCategories, fetchProductsByCategory } from "../products/products";
 
 export const useProducts = () => {
   return useQuery({
@@ -9,7 +9,7 @@ export const useProducts = () => {
 };
 
 export const useCategories = () => {
-  return useQuery({
+  return useQuery<string[]>({
     queryKey: ["categories"],
     queryFn: fetchCategories,
   });

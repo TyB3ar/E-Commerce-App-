@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import type { RootState } from "../app/store";
+import type { RootState } from "../cart/store";
 import { removeFromCart, clearCart } from "../cart/cartSlice";
 import { createOrder } from "../firebase/orders";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 import "../css/cart.css"; 
+import "../css/index.css";
 
 const Cart = () => {
   const cart = useSelector((state: RootState) => state.cart);
@@ -46,6 +47,7 @@ const Cart = () => {
       <h2>Shopping Cart</h2>
       {cart.length === 0 ? <p>Your cart is empty.</p> : null}
 
+    <div className="product-grid">
       {cart.map((item) => (
         <div className="card cart-card" key={item.id}>
           <img src={item.image} alt={item.title} width="50" />
@@ -55,6 +57,8 @@ const Cart = () => {
           <button onClick={() => dispatch(removeFromCart(item.id))}>Remove</button>
         </div>
       ))}
+    </div>
+      
 
       {cart.length > 0 && (
         <>

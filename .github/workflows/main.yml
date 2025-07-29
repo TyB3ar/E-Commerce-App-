@@ -1,0 +1,16 @@
+name: CI Pipline
+
+on: 
+  push:
+    branches:
+      -master
+  pull:
+    barnches: 
+      -master 
+
+jobs: 
+  tests:
+    runs-on: jest-latest
+
+    steps: 
+      # Write out steps 

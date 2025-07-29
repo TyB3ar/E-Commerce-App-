@@ -5,6 +5,7 @@ import ProductCard from "../products/ProductCard";
 import ProductForm from "../products/ProductForm";
 import type { Product } from "../types/product";
 import { addProduct, updateProduct, deleteProduct } from "../firebase/products";
+import '../css/index.css'; 
 
 const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -81,7 +82,7 @@ const ProductsPage = () => {
       )}
 
       {/* Products grid */}
-      <div className="grid">
+      <div className="product-grid">
         {products?.map((product) => (
           <ProductCard
             key={product.id}

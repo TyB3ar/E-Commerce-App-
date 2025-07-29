@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import type { RootState } from '../app/store'; 
+import type { RootState } from './store';  
 import { createOrder } from '../firebase/orders';
 import { useAuth } from '../hooks/useAuth';
 import { clearCart } from './cartSlice'; 
