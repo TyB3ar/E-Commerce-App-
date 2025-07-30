@@ -1,14 +1,19 @@
 # 🛒 Advanced E-Commerce Application with Firebase
 
+
 ## Overview
 
-A modern, full-featured e-commerce web application built with **React**, **TypeScript**, **Redux Toolkit**, **React Query**, and **Firebase**. It offers:
+A modern, full-featured e-commerce web application built with **React**, **TypeScript**, **Redux Toolkit**, **React Query**, and **Firebase**. Built with **Test-Driven Development** and deployed using **CI/CD pipelines via GitHub Actions**.
 
-- Firebase Authentication with email/password registration and login
-- Firestore backend replacing FakeStoreAPI for products, users, and orders
-- Real-time syncing and persistent cart state with Redux Toolkit and sessionStorage
-- Responsive UI styled with a custom earthy color palette
-- Order management with detailed views and user-specific histories
+### 🔧 Core Features
+
+- 🔐 Firebase Authentication with email/password registration and secure login
+- 🔥 Firestore backend replacing FakeStoreAPI for products, users, and orders
+- 🛒 Persistent shopping cart with Redux Toolkit + sessionStorage
+- 🧾 Order management with detailed user-specific histories
+- 🎨 Fully responsive UI styled with a custom earthy color palette
+- 🧪 Unit and integration testing with Jest and React Testing Library
+- 🚀 GitHub Actions for continuous integration and testing on each push/PR
 
 ---
 
@@ -43,17 +48,41 @@ A modern, full-featured e-commerce web application built with **React**, **TypeS
   - `#DAD7CD`, `#A3B18A`, `#588157`, `#3A5A40`, `#344E41`
 - Modal checkout confirmation for better UX
 
+
+---
+
+## 🧪 Testing & TDD
+
+This app was developed using **Test-Driven Development** principles with the following stack:
+
+- **Jest** – Unit test runner
+- **React Testing Library** – Component and integration tests
+- **Mock Service Workers (MSW)** – API mocking (optional for integration)
+- **CI Integration** – All tests run automatically on GitHub push or pull request
+
+To run tests locally:
+
+```bash
+npm test
+# or
+yarn test
+``` 
+
 ---
 
 ## 🛠 Tech Stack
 
-- React + TypeScript
-- Redux Toolkit (cart state management)
-- React Query (data fetching/caching)
-- Firebase Authentication (user auth)
-- Firestore (products, users, orders data storage)
-- CSS (custom styling, no framework)
-- React Router (navigation)
+- ⚛️ React + TypeScript
+
+- 🛠️ Redux Toolkit for global state
+
+- 🔄 React Query for data fetching
+
+- 🔥 Firebase Authentication + Firestore
+
+- 📦 CSS (custom-styled, no framework)
+
+- 🧭 React Router for navigation
 
 ---
 
@@ -82,8 +111,23 @@ yarn install
 
 3. **Configure Firebase** 
 
-- Copy your Firebase Config from the Firebase Console
-- Paste it into 'src/firebase/fbConfig.ts'
+This project uses a placeholder firebaseConfig. Create your own Firebase project and add your credentials in:
+```bash
+src/firebase/fbConfig.ts
+```
+
+Example: 
+const firebaseConfig = {
+  apiKey: "your_api_key",
+  authDomain: "your_auth_domain",
+  projectId: "your_project_id",
+  storageBucket: "your_storage_bucket",
+  messagingSenderId: "your_messaging_sender_id",
+  appId: "your_app_id",
+};
+
+⚠️ Do not commit your API keys. Use environment variables for deployment if needed.
+
 
 4. **Run the App**
 ```bash
@@ -93,7 +137,8 @@ yarn run dev
 ```
 
 
-## 🧪 Testing and Usage
+## 🧪 App Usage
+
 - Register a new user with optional name and address fields.
 
 - Login and update your profile, or delete your account (requires re-entering password).
@@ -109,9 +154,38 @@ yarn run dev
 - Admin users can add, edit, or delete products (if implemented).
 
 
+## CI/CD Pipeline
+
+This app uses GitHub Actions to automate: 
+
+- 🧪 Running all Jest tests on push/PR
+
+- ✅ Ensuring no broken changes get merged
+
+.github/workflows/main.yml runs on:
+yaml 
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+- CI runs in a jest-latest environment and uses react-scripts test or vitest, depending on setup.
+
 ## 🔒 Security and Firestore Rules
 - Firestore security rules allow reads and writes only for authenticated users.
 
 - Orders and profiles are accessible only by their owners.
 
 - Composite indexes created for efficient querying of orders by user.
+
+## 📝 Contributing
+
+Feel free to fork, open issues, or submit pull requests. Just remember:
+
+- Keep credentials out of commits
+
+- Write tests for new features
+
+- Follow existing code style and structure
