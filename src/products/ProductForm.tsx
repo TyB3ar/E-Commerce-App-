@@ -1,3 +1,4 @@
+import React from "react"; 
 import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import type { Product } from "../types/product";
