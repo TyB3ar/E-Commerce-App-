@@ -8,9 +8,9 @@ import { globalIgnores } from 'eslint/config'
 export default tseslint.config([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    rules: {
-    'no-unused-vars': ['warn', { varsIgnorePattern: 'React' }],
+    files: ['**/__tests__/**/*.ts?(x)', '**/*.test.ts?(x)'],
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: 'React' }],
   },
     extends: [
       js.configs.recommended,
