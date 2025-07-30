@@ -163,6 +163,7 @@ This app uses GitHub Actions to automate:
 - ✅ Ensuring no broken changes get merged
 
 .github/workflows/main.yml runs on:
+```bash
 yaml 
 
 on:
@@ -170,6 +171,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+```
 
 - CI runs in a jest-latest environment and uses react-scripts test or vitest, depending on setup.
 
