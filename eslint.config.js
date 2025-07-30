@@ -9,6 +9,9 @@ export default tseslint.config([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
+    rules: {
+    'no-unused-vars': ['warn', { varsIgnorePattern: 'React' }],
+  },
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,

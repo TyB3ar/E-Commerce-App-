@@ -10,7 +10,7 @@ on:
 
 jobs: 
   tests:
-    runs-on: jest-latest
+    runs-on: ubuntu-latest
 
     steps: 
       # Step 1: Check out the repository code
