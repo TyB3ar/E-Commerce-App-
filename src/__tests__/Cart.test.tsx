@@ -1,3 +1,4 @@
+import React from 'react'; 
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'; 
 import Cart from '../components/Cart'; 
@@ -52,7 +53,7 @@ describe("Cart Integration Test", () => {
         
         // Cart Contents are shown
         expect(screen.getByText('Test Product')).toBeInTheDocument(); 
-        expect(screen.getByText('Quantity: 2')).toBeInTheDocument(); 
+        expect(screen.getByText('Qty: 2')).toBeInTheDocument(); 
         expect(screen.getByText('Price: $9.99')).toBeInTheDocument(); 
         expect(screen.getByText('Total Items: 2')).toBeInTheDocument(); 
         expect(screen.getByText('Total Price: $19.98')).toBeInTheDocument(); 

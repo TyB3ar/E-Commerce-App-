@@ -29,4 +29,4 @@ jobs:
 
       # Step 4: Run Tests
       - name: Run Tests
-        run: npm test-- --watchAll=false 
+        run: npm test -- --watchAll=false 
