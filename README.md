@@ -117,6 +117,7 @@ src/firebase/fbConfig.ts
 ```
 
 Example: 
+```bash
 const firebaseConfig = {
   apiKey: "your_api_key",
   authDomain: "your_auth_domain",
@@ -125,6 +126,7 @@ const firebaseConfig = {
   messagingSenderId: "your_messaging_sender_id",
   appId: "your_app_id",
 };
+```
 
 ⚠️ Do not commit your API keys. Use environment variables for deployment if needed.
 
