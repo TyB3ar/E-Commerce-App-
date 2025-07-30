@@ -8,8 +8,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from "../cart/cartSlice"; 
 
-module.exports = {}; 
-
 // Mock useAuth hook for user verification
 jest.mock("../hooks/useAuth", () => ({
     useAuth: () => ({
