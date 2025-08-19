@@ -1,4 +1,4 @@
-// Firebase and Firestore config 
+// Firebase and Firestore config
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import type { Auth } from "firebase/auth";
@@ -11,10 +11,19 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
+
+let auth: Auth;
+let db;
+
+try {
+  const app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+} catch (error) {
+  console.error("Firebase init error:", error);
 }
 
-const app = initializeApp(firebaseConfig); 
-const auth: Auth = getAuth(app); 
-const db = getFirestore(app); 
+console.log("Firebase Config:", firebaseConfig);
 
-export { auth, db }; 
+export { auth, db };
