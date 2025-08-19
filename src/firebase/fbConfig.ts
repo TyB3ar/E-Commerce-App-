@@ -3,6 +3,8 @@ import { getAuth } from "firebase/auth";
 import type { Auth } from "firebase/auth";
 import { getFirestore, Firestore } from "firebase/firestore";
 
+console.log("🔥 Firebase API Key:", import.meta.env.VITE_FIREBASE_API_KEY);
+
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -15,8 +17,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth: Auth = getAuth(app);
 const db: Firestore = getFirestore(app);
-
-console.log("🔥 Firebase API Key:", import.meta.env.VITE_FIREBASE_API_KEY);
 
 Object.entries(firebaseConfig).forEach(([key, value]) => {
   if (!value) throw new Error(`Missing Firebase config: ${key}`);

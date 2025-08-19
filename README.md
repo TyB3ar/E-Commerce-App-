@@ -174,4 +174,4 @@ Feel free to fork, open issues, or submit pull requests. Just remember:
 
 ## Link to Live App : 
 
- - https://e-commerce-4xfcl39i9-tyler-wronskis-projects.vercel.app/login 
+ - https://e-commerce-7ewyv4o9j-tyler-wronskis-projects.vercel.app/login
