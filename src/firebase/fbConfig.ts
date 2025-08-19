@@ -16,7 +16,7 @@ const app = initializeApp(firebaseConfig);
 const auth: Auth = getAuth(app);
 const db: Firestore = getFirestore(app);
 
-console.log("Resolved Firebase Config:", firebaseConfig);
+console.log("🔥 Firebase API Key:", import.meta.env.VITE_FIREBASE_API_KEY);
 
 Object.entries(firebaseConfig).forEach(([key, value]) => {
   if (!value) throw new Error(`Missing Firebase config: ${key}`);
