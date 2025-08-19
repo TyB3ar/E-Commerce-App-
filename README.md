@@ -109,29 +109,7 @@ npm install
 yarn install
 ```
 
-3. **Configure Firebase** 
-
-This project uses a placeholder firebaseConfig. Create your own Firebase project and add your credentials in:
-```bash
-src/firebase/fbConfig.ts
-```
-
-Example: 
-```bash
-const firebaseConfig = {
-  apiKey: "your_api_key",
-  authDomain: "your_auth_domain",
-  projectId: "your_project_id",
-  storageBucket: "your_storage_bucket",
-  messagingSenderId: "your_messaging_sender_id",
-  appId: "your_app_id",
-};
-```
-
-⚠️ Do not commit your API keys. Use environment variables for deployment if needed.
-
-
-4. **Run the App**
+3. **Run the App**
 ```bash
 npm run dev 
 # or 

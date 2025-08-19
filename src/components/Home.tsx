@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <div className="category-container">
       <select onChange={(e) => setCategory(e.target.value)} value={category}>
-        <option value="">All</option>
+        <option value="">Categories</option>
         {categories?.map((cat) => (
           <option key={cat} value={cat}>
             {cat.charAt(0).toUpperCase() + cat.slice(1)}
