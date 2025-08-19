@@ -18,5 +18,9 @@ const db: Firestore = getFirestore(app);
 
 console.log("Resolved Firebase Config:", firebaseConfig);
 
+Object.entries(firebaseConfig).forEach(([key, value]) => {
+  if (!value) throw new Error(`Missing Firebase config: ${key}`);
+});
+
 
 export { auth, db };
