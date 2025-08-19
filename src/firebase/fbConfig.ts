@@ -1,8 +1,7 @@
-// Firebase and Firestore config
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import type { Auth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, Firestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -13,17 +12,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-let auth: Auth;
-let db;
-
-try {
-  const app = initializeApp(firebaseConfig);
-  auth = getAuth(app);
-  db = getFirestore(app);
-} catch (error) {
-  console.error("Firebase init error:", error);
-}
-
-console.log("Firebase Config:", firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth: Auth = getAuth(app);
+const db: Firestore = getFirestore(app);
 
 export { auth, db };
